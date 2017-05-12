@@ -11,7 +11,6 @@ public class DBReadVerticle extends AbstractVerticle {
 	public void start(Future<Void> future) throws Exception {
 		vertx.eventBus().consumer("com.library.book.read", message -> {
 			String isbn=message.body().toString();
-			System.out.println(isbn);
 			JsonObject config = new JsonObject();
 			config.put("db_name", "cmad");
 			config.put("connection_string", "mongodb://mongo:27017");
@@ -23,7 +22,6 @@ public class DBReadVerticle extends AbstractVerticle {
 					else {
 						JsonObject book = res.result().get(0);
 						String json = Json.encodePrettily(book);
-						System.out.println("BHAGI " + json);
 						message.reply(json);
 					}
 				} else {
@@ -32,10 +30,5 @@ public class DBReadVerticle extends AbstractVerticle {
 				}
 			});
 		});
-	}
-
-	@Override
-	public void stop() throws Exception {
-		super.stop();
 	}
 }

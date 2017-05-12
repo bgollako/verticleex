@@ -9,8 +9,6 @@ public class DBWriteVerticle extends AbstractVerticle {
 	@Override
 	public void start(Future<Void> future) throws Exception {
 		vertx.eventBus().consumer("com.library.book.add", message -> {
-			String isbn=message.body().toString();
-			System.out.println(isbn);
 			JsonObject config = new JsonObject();
 			config.put("db_name", "cmad");
 			config.put("connection_string", "mongodb://mongo:27017");
@@ -25,10 +23,5 @@ public class DBWriteVerticle extends AbstractVerticle {
 				}
 			});
 		});
-	}
-
-	@Override
-	public void stop() throws Exception {
-		super.stop();
 	}
 }
