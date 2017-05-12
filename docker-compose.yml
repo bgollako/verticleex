@@ -1,0 +1,9 @@
+app:
+  image: bgollako/vertex-ex:v2.0
+  links:
+    - mongodb:mongo
+  ports:
+    - 8080
+
+mongodb:
+  image: mongo:latest
