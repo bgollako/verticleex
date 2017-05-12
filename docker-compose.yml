@@ -3,7 +3,7 @@ app:
   links:
     - mongodb:mongo
   ports:
-    - 8090
+    - 7000:8090
 
 mongodb:
   image: mongo:latest
