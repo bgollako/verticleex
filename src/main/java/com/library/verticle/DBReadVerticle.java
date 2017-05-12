@@ -14,7 +14,7 @@ public class DBReadVerticle extends AbstractVerticle {
 			System.out.println(isbn);
 			JsonObject config = new JsonObject();
 			config.put("db_name", "cmad");
-			config.put("connection_string", "mongodb://localhost:27017");
+			config.put("connection_string", "mongodb://mongo:27017");
 			MongoClient client = MongoClient.createShared(vertx, config);
 			client.find("books", new JsonObject().put("isbn", Integer.parseInt(isbn)), res -> {
 				if (res.succeeded()) {
