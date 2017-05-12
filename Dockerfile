@@ -11,5 +11,5 @@ ADD src/main /code/src/main
 RUN mvn package 
 RUN chmod a+rwx target/cmad-advanced-staging-demo-fat.jar
 
-EXPOSE 8090
+EXPOSE 8080
 CMD java -jar target/cmad-advanced-staging-demo-fat.jar
